@@ -7,6 +7,7 @@ declare namespace Cloudflare {
 	}
 	interface Env {
 		DB: D1Database;
+		MISTRAL_API_KEY: string;
 	}
 }
 interface Env extends Cloudflare.Env {}

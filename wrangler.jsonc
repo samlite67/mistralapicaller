@@ -12,5 +12,8 @@
 			"database_name": "openapi-template-db",
 			"database_id": "441706b7-4883-453f-a16b-fc9d88087968"
 		}
-	]
+	],
+	"vars": {
+		"MISTRAL_API_KEY": "JCp4pLqmfVTSQXRTFZ61Bf5Q6aV7fXwb"
+	}
 }
