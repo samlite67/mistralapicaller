@@ -1,0 +1,6 @@
+-- Migration number: 0002 	 2025-01-10T20:45:00.000Z
+CREATE TABLE IF NOT EXISTS memory (
+    id TEXT PRIMARY KEY,
+    state TEXT NOT NULL,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);

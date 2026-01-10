@@ -46,5 +46,17 @@ openapi.route("/tasks", tasksRouter);
 // Register other endpoints
 openapi.post("/dummy/:slug", DummyEndpoint);
 
+// Memory API routes for state persistence
+app.get('/state', async (c) => {
+	const result = await c.env.DB.prepare('SELECT state FROM memory WHERE id = ?').bind('latest').first();
+	return c.json({ state: result ? JSON.parse(result.state as string) : null });
+});
+
+app.post('/state', async (c) => {
+	const { state } = await c.req.json();
+	await c.env.DB.prepare('INSERT OR REPLACE INTO memory (id, state, updated_at) VALUES (?, ?, CURRENT_TIMESTAMP)').bind('latest', JSON.stringify(state)).run();
+	return c.json({ success: true });
+});
+
 // Export the Hono app
 export default app;
