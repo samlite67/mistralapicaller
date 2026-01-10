@@ -12,6 +12,10 @@ declare namespace Cloudflare {
 }
 interface Env extends Cloudflare.Env {}
 
+interface Env {
+  MISTRAL_API_KEY: string;
+}
+
 // Begin runtime types
 /*! *****************************************************************************
 Copyright (c) Cloudflare. All rights reserved.

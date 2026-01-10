@@ -3,9 +3,12 @@ import { Hono } from "hono";
 import { tasksRouter } from "./endpoints/tasks/router";
 import { ContentfulStatusCode } from "hono/utils/http-status";
 import { DummyEndpoint } from "./endpoints/dummyEndpoint";
+import { cors } from 'hono/cors';
 
 // Start a Hono app
 const app = new Hono<{ Bindings: Env }>();
+
+app.use('/api/*', cors());
 
 app.onError((err, c) => {
 	if (err instanceof ApiException) {
@@ -56,6 +59,26 @@ app.post('/state', async (c) => {
 	const { state } = await c.req.json();
 	await c.env.DB.prepare('INSERT OR REPLACE INTO memory (id, state, updated_at) VALUES (?, ?, CURRENT_TIMESTAMP)').bind('latest', JSON.stringify(state)).run();
 	return c.json({ success: true });
+});
+
+app.post('/api/chat', async (c) => {
+	const { messages } = await c.req.json();
+	const apiKey = c.env.MISTRAL_API_KEY;
+
+	const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${apiKey}`,
+		},
+		body: JSON.stringify({
+			model: 'mistral-tiny',
+			messages,
+		}),
+	});
+
+	const data = await response.json();
+	return c.json(data);
 });
 
 // Export the Hono app
