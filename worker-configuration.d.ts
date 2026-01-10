@@ -14,6 +14,7 @@ interface Env extends Cloudflare.Env {}
 
 interface Env {
   MISTRAL_API_KEY: string;
+  DB: D1Database;
 }
 
 // Begin runtime types
