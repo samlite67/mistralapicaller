@@ -1,0 +1,6 @@
+name = "api-proxy"
+main = "backend/index.ts"
+compatibility_date = "2024-01-12"
+
+[env.production]
+workers_dev = true
