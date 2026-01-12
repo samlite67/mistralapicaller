@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Underworld Simulation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #050505;
+        font-family: 'Inter', sans-serif;
+      }
+      canvas {
+        display: block;
+      }
+      @keyframes glow {
+        0%, 100% { filter: drop-shadow(0 0 5px #00f2ff); }
+        50% { filter: drop-shadow(0 0 15px #00f2ff); }
+      }
+      .sao-font {
+        font-family: 'Courier New', Courier, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
