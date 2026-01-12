@@ -1,0 +1,36 @@
+{
+  "name": "mistralapicaller",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:backend": "wrangler dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server.js",
+    "deploy": "wrangler deploy",
+    "test": "wrangler deploy --dry-run && npx vitest run --config tests/vitest.config.mts",
+    "cf-typegen": "wrangler types",
+    "predeploy": "wrangler d1 migrations apply DB --remote"
+  },
+  "dependencies": {
+    "@mistralai/mistralai": "^1.3.8",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "hono": "4.11.1",
+    "chanfana": "2.8.3",
+    "zod": "3.25.67"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "5.9.3",
+    "vite": "^6.2.0",
+    "wrangler": "4.56.0",
+    "vitest": "3.2.4",
+    "@cloudflare/vitest-pool-workers": "0.10.11"
+  }
+}
