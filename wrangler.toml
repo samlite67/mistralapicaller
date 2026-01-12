@@ -1,3 +1,4 @@
 name = "mistralapicaller"
-main = "backend/index.ts"
+main = "src/index.ts"
 compatibility_date = "2024-01-12"
+workers_dev = true

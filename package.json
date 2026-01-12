@@ -5,5 +5,13 @@
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "start": "wrangler dev"
+  },
+  "dependencies": {
+    "itty-router": "^4.2.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240512.14",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.56.0"
   }
 }
