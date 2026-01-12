@@ -1,6 +1,8 @@
-name = "api-proxy"
+name = "mistralapicaller"
 main = "backend/index.ts"
 compatibility_date = "2024-01-12"
 
-[env.production]
-workers_dev = true
+[[d1_databases]]
+binding = "DB"
+database_name = "world26-memory"
+database_id = "441706b7-4883-453f-a16b-fc9d88087968"
